@@ -16,6 +16,7 @@ jobs:
       - IN: git_code_repo
         switch: off
       - TASK:
+          name: job_s1
           script:
             - *final_script_temp
       - OUT: s1_state
