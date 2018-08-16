@@ -19,7 +19,7 @@ jobs:
           name: job_s1
           script:
             - *final_script_temp
-            - STATE=shipctl get_resource_state "s1_state"
+            - STATE="$(shipctl get_resource_state "s1_state")"
             - echo $STATE
       - OUT: s1_state
     flags:
