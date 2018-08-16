@@ -17,9 +17,9 @@ set_pipeline_triggerby_temp: &set_pipeline_triggerby
 echo_some_random_stuff: &echo_some_random_stuff
 - |
     echo "This is the random stuff that we talked about.............."
-    if [[ $JOB_NAME = *"s1"*]]; then
+    if [[ $JOB_NAME = *"s1"* ]]; then
       shipctl put_resource_state_multi "s1_state" "JOB_NAME=$JOB_NAME" "DEPLOY_USER=$JOB_TRIGGERED_BY_NAME"
-    elif [[ $JOB_NAME = *"s2"*]]; then
+    elif [[ $JOB_NAME = *"s2"* ]]; then
       shipctl put_resource_state_multi "s2_state" "JOB_NAME=$JOB_NAME" "DEPLOY_USER=$JOB_TRIGGERED_BY_NAME"
     fi
 
