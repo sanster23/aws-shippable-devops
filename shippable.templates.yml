@@ -4,6 +4,7 @@ set_pipeline_triggerby_temp: &set_pipeline_triggerby
     echo "Job name - $JOB_NAME"
     echo "Job id - $JOB_ID"
     echo "Last successful build time - $LAST_SUCCESSFUL_BUILD_TIMESTAMP"
+    echo "Triggered by - $JOB_TRIGGERED_BY_NAME"
     if [ $RESOURCE_ID -eq $JOB_TRIGGERED_BY_ID ]
     then
       WORKFLOW_TRIGGERED_BY_NAME=$JOB_TRIGGERED_BY_NAME
