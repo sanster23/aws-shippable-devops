@@ -1,0 +1,14 @@
+resources:
+# Automation scripts source repo
+  - name: git_code_repo
+    type: gitRepo
+    integration: "git_ship"
+    versionTemplate:
+      sourceName: "sanster23/aws-shippable-devops"
+      branch: master
+
+  - name: s1_state
+    type: state
+
+  - name: s2_state
+    type: state

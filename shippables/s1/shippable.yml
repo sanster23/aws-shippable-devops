@@ -1,11 +1,11 @@
-resources:
-# Automation scripts source repo
-  - name: git_code_repo
-    type: gitRepo
-    integration: "git_ship"
-    versionTemplate:
-      sourceName: "sanster23/aws-shippable-devops"
-      branch: master
+# resources:
+# # Automation scripts source repo
+#   - name: git_code_repo
+#     type: gitRepo
+#     integration: "git_ship"
+#     versionTemplate:
+#       sourceName: "sanster23/aws-shippable-devops"
+#       branch: master
 
 
 jobs:
@@ -18,3 +18,7 @@ jobs:
       - TASK:
           script:
             - *final_script_temp
+      - OUT: s1_state
+    flags:
+      - ship
+      - aws
