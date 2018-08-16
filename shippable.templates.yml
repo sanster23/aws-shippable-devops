@@ -1,0 +1,25 @@
+set_pipeline_triggerby_temp: &set_pipeline_triggerby
+- |
+    echo "Project id - $PROJECT_ID"
+    echo "Job name - $JOB_NAME"
+    echo "Job id - $JOB_ID"
+    echo "Last successful build time - $LAST_SUCCESSFUL_BUILD_TIMESTAMP"
+    if [ $RESOURCE_ID -eq $JOB_TRIGGERED_BY_ID ]
+    then
+      WORKFLOW_TRIGGERED_BY_NAME=$JOB_TRIGGERED_BY_NAME
+    else
+      WORKFLOW_TRIGGERED_BY_NAME=$(shipctl get_resource_version_key "$JOB_TRIGGERED_BY_NAME" "WORKFLOW_TRIGGERED_BY_NAME")
+    fi
+    shipctl put_resource_state_multi $JOB_NAME "WORKFLOW_TRIGGERED_BY_NAME=$WORKFLOW_TRIGGERED_BY_NAME"
+
+
+
+echo_some_random_stuff: &echo_some_random_stuff
+- |
+    echo "This is the random stuff that we talked about.............."
+
+
+
+final_script_temp: &final_script_temp
+  - *set_pipeline_triggerby
+  - *echo_some_random_stuff

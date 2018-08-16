@@ -1,0 +1,20 @@
+resources:
+# Automation scripts source repo
+  - name: git_code_repo
+    type: gitRepo
+    integration: "git_ship"
+    versionTemplate:
+      sourceName: "sanster23/aws-shippable-devops"
+      branch: master
+
+
+jobs:
+  # Run the script for s1
+  - name: job_s2
+    type: runSh
+    steps:
+      - IN: git_code_repo
+        switch: off
+      - TASK:
+          script:
+            - *final_script_temp
