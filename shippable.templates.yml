@@ -24,13 +24,7 @@ echo_some_random_stuff: &echo_some_random_stuff
       shipctl put_resource_state_multi "s2_state" "JOB_NAME=$JOB_NAME" "DEPLOY_USER=$JOB_TRIGGERED_BY_NAME"
     fi
 
-is_ldif_file: &is_ldif_file
-- |
-    if [[ $NEW_FILE = "*.ldif" ]]; then
-      echo "YES this is a ldif file...."
-      echo "Adding the new user to ldap..."
-    fi
-    
+
 final_script_temp: &final_script_temp
   - *set_pipeline_triggerby
   - *echo_some_random_stuff
