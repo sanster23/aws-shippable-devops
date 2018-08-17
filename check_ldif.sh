@@ -6,8 +6,7 @@ USER_LDIF_FOLDER="folder"
 
 echo "Checking if the file is ldif or not ...."
 
-if [[ $CHANGES_TO_FOLDER = $USER_LDIF_FOLDER ]]; then 
-	
+if [[ $CHANGES_TO_FOLDER = $USER_LDIF_FOLDER ]]; then
 	echo "Changes were made to the user ldif folder..."
 
 	if [[ $NEW_FILE = *".${LDIF_EXTENSION}" ]]; then

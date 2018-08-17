@@ -8,6 +8,7 @@ branches:
 
 build:
   ci:
+    - echo $COMMIT $BRANCH $REPOSITORY_NAME
     - echo $SHIPPABLE_COMMIT_RANGE
     - changes_to_folder=`git diff --name-only $SHIPPABLE_COMMIT_RANGE | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq`
     - echo $changes_to_folder
