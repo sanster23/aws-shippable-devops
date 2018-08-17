@@ -22,9 +22,10 @@ jobs:
             - STATE="$(shipctl get_resource_state "s1_state")"
             - echo $STATE
             - pushd $(shipctl get_resource_state "git_code_repo")
+            - echo $COMMIT
             - echo $SHIPPABLE_COMMIT_RANGE
             # - changes=`git diff --name-only $SHIPPABLE_COMMIT_RANGE | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq`
-            - changes=`git diff --name-only $SHIPPABLE_COMMIT_RANGE | sort -u`
+            - changes="$(git diff --name-only $SHIPPABLE_COMMIT_RANGE | sort -u)"
             - echo $changes
             - echo "******\t******\n\n******\t******"
             - git log
