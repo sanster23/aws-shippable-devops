@@ -14,7 +14,8 @@ build:
     # http://docs.shippable.com/ci/advancedOptions/retry/
     - STATE="$(shipctl get_resource_state "s1_state")"
     - echo $STATE
-    - pushd $(shipctl get_resource_state "git_code_repo")
+    - pwd
+    # - pushd $(shipctl get_resource_state "git_code_repo")
     - echo "${REPOSITORY_URL}"
     - echo "${BASE_BRANCH}"
     - echo "${COMMIT}"
@@ -24,4 +25,4 @@ build:
     - echo $changes
     - echo "******\t******\n\n******\t******"
     - git log
-    - popd
+    # - popd
