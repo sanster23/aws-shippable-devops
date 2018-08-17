@@ -21,6 +21,7 @@ jobs:
             - *final_script_temp
             - STATE="$(shipctl get_resource_state "s1_state")"
             - echo $STATE
+            - git reflog
       - OUT: s1_state
     flags:
       - ship
