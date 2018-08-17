@@ -22,7 +22,7 @@ jobs:
             - STATE="$(shipctl get_resource_state "s1_state")"
             - echo $STATE
             - pushd $(shipctl get_resource_state "git_code_repo")
-            - git reflog
+            - git log
             - popd
       - OUT: s1_state
     flags:
