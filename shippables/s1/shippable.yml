@@ -21,7 +21,9 @@ jobs:
             - *final_script_temp
             - STATE="$(shipctl get_resource_state "s1_state")"
             - echo $STATE
+            - pushd $(shipctl get_resource_state "git_code_repo")
             - git reflog
+            - popd
       - OUT: s1_state
     flags:
       - ship
