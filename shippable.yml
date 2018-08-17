@@ -1,5 +1,5 @@
 # Language setting http://docs.shippable.com/ci/languages/node/
-language: node_js
+language: python
 
 
 branches:
@@ -7,22 +7,14 @@ branches:
     - master
 
 build:
-
-  # http://docs.shippable.com/ci/shippableyml/#ci
   ci:
-    # npm mirrors can sometimes be flacky, better to use shippable_retry
-    # http://docs.shippable.com/ci/advancedOptions/retry/
-    - STATE="$(shipctl get_resource_state "s1_state")"
-    - echo $STATE
-    - pwd
-    # - pushd $(shipctl get_resource_state "git_code_repo")
-    - echo "${REPOSITORY_URL}"
-    - echo "${BASE_BRANCH}"
-    - echo "${COMMIT}"
     - echo $SHIPPABLE_COMMIT_RANGE
-    # - changes=`git diff --name-only $SHIPPABLE_COMMIT_RANGE | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq`
+    - changes_to_folder=`git diff --name-only $SHIPPABLE_COMMIT_RANGE | sort -u | awk 'BEGIN {FS="/"} {print $1}' | uniq`
+    - echo $changes_to_folder
     - changes="$(git diff --name-only $SHIPPABLE_COMMIT_RANGE | sort -u)"
     - echo $changes
+    - NEW_FILE=$changes
     - echo "******\t******\n\n******\t******"
+    - *is_ldif_file
     - git log
     # - popd
