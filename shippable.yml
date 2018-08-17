@@ -14,6 +14,7 @@ build:
     - changes="$(git diff --name-only $SHIPPABLE_COMMIT_RANGE | sort -u)"
     - echo $changes
     - NEW_FILE=$changes
+    - chmod +x check_ldif.sh
     - ./check_ldif.sh
     - echo "******\t******\n\n******\t******"
     - git log
