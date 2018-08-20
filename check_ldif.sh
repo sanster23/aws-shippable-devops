@@ -6,6 +6,7 @@ USER_LDIF_FOLDER="folder"
 
 echo "Checking if the file is ldif or not ...."
 
+echo "Only run this job if the job is a Pull Request"
 if [[ $CHANGES_TO_FOLDER = $USER_LDIF_FOLDER ]]; then
 	echo "Changes were made to the user ldif folder..."
 

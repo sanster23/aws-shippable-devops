@@ -12,3 +12,8 @@ resources:
 
   - name: s2_state
     type: state
+
+  - name: trigger_s1
+    type: trigger
+    versionTemplate:
+      counter: 1

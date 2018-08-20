@@ -15,6 +15,7 @@ jobs:
     steps:
       - IN: git_code_repo
         switch: off
+      - IN: trigger_s1
       - TASK:
           name: job_s1
           script:
