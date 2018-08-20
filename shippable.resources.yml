@@ -16,4 +16,4 @@ resources:
   - name: trigger_s1
     type: trigger
     versionTemplate:
-      counter: 1
+      counter: 2
